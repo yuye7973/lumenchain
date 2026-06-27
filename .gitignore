@@ -1,0 +1,17 @@
+node_modules/
+dist/
+*.tsbuildinfo
+
+# runtime state — never commit the live bus
+.neural-bus/
+.openclaw/
+*.pid
+*.log
+
+.DS_Store
+.idea/
+.vscode/
+
+# internal working notes (not for public repo)
+中文_發佈須知.md
+發佈指令.md

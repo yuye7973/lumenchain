@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LumenChain SourcePoint",
+  "type": "object",
+  "required": ["sourceId", "sourceType", "uri", "owner", "readPolicy", "movePolicy", "copyPolicy", "sensitivity", "runtimeStatus", "firstSeenAt", "currentStatus", "evidence"],
+  "properties": {
+    "sourceId": { "type": "string" },
+    "sourceType": {
+      "type": "string",
+      "enum": ["file_tree", "project", "agent_system", "memory_store", "runtime_state", "schedule", "service", "workflow", "report", "dataset", "design_workspace", "github_repo", "github_issue", "github_pull_request", "notion_workspace", "notion_page", "browser_context", "computer_session", "build_workspace", "visualization_workspace", "credential_boundary", "external_source"]
+    },
+    "uri": { "type": "string" },
+    "owner": { "type": "string" },
+    "readPolicy": {
+      "type": "string",
+      "enum": ["read_allowed", "metadata_only", "forbidden"]
+    },
+    "movePolicy": {
+      "type": "string",
+      "enum": ["index_only", "copy_safe", "move_after_approval", "never_move"]
+    },
+    "copyPolicy": {
+      "type": "string",
+      "enum": ["copy_allowed", "copy_redacted", "copy_after_approval", "never_copy"]
+    },
+    "sensitivity": {
+      "type": "string",
+      "enum": ["none", "private", "secret_like", "credential_like", "runtime_like", "production_like", "trading_like", "payment_like"]
+    },
+    "runtimeStatus": {
+      "type": "string",
+      "enum": ["not_runtime", "active_runtime", "dormant_runtime", "unknown"]
+    },
+    "firstSeenAt": { "type": "string" },
+    "currentStatus": {
+      "type": "string",
+      "enum": ["candidate", "indexed", "active", "reference_only", "blocked", "retired"]
+    },
+    "evidence": { "type": "string" }
+  },
+  "additionalProperties": false
+}

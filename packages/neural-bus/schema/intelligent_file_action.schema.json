@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lumenchain.intelligent_file_action.schema.json",
+  "title": "Intelligent File Action",
+  "type": "object",
+  "required": [
+    "actionId",
+    "actionType",
+    "sourcePath",
+    "targetPath",
+    "targetZone",
+    "ownerAI",
+    "riskClass",
+    "approvalRequired",
+    "prechecks",
+    "rollback",
+    "evidenceOutput",
+    "status",
+    "nextAction"
+  ],
+  "properties": {
+    "actionId": { "type": "string" },
+    "actionType": {
+      "type": "string",
+      "enum": [
+        "CREATE_FILE",
+        "CREATE_FOLDER",
+        "PLACE_FILE",
+        "INVENTORY_SOURCE",
+        "MOVE_PLAN",
+        "MOVE_EXECUTE",
+        "ARCHIVE_PLAN",
+        "BLOCKED_NEEDS_APPROVAL"
+      ]
+    },
+    "sourcePath": { "type": "string" },
+    "targetPath": { "type": "string" },
+    "targetZone": { "type": "string" },
+    "ownerAI": { "type": "string" },
+    "riskClass": { "type": "string", "enum": ["low", "medium", "high", "controlled-sensitive"] },
+    "approvalRequired": { "type": "boolean" },
+    "prechecks": { "type": "string" },
+    "rollback": { "type": "string" },
+    "evidenceOutput": { "type": "string" },
+    "status": { "type": "string" },
+    "nextAction": { "type": "string" }
+  },
+  "additionalProperties": false
+}

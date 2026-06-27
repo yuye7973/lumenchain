@@ -1,0 +1,571 @@
+{
+  "$schema_version": "openclaw.model-orchestrator.catalog.v1",
+  "lastUpdated": "2026-06-15",
+  "policy": {
+    "killSwitch": "LUMENCHAIN_ORCHESTRATOR_DISABLE",
+    "killValue": "1",
+    "minFreeVramGb": 2,
+    "minFreeRamGb": 6,
+    "cloudFreeAutoRotation": {
+      "enabled": true,
+      "preferOnRamLow": true,
+      "providers": {
+        "openrouter": {
+          "authEnv": [
+            "OPENROUTER_API_KEY"
+          ],
+          "baseUrl": "https://openrouter.ai/api/v1"
+        }
+      }
+    },
+    "keepAliveMinHigh": 10,
+    "keepAliveMinLow": 0,
+    "desktopGpuThresholdPct": 50,
+    "desktopGpuSustainSec": 60,
+    "telemetryPath": ".lumenchain/telemetry/model-orchestrator.jsonl",
+    "keepAliveByTier": {
+      "basic": "2h",
+      "medium": "30m",
+      "high": "15m",
+      "reasoning": "15m",
+      "code": "30m",
+      "embed": "4h"
+    }
+  },
+  "gpu": {
+    "model": "RTX 5060 Ti",
+    "totalVramGb": 16,
+    "desktopReserveGb": 1.5,
+    "availableForLlmGb": 14.5
+  },
+  "models": {
+    "qwen2.5:3b": {
+      "vramGb": 2.5,
+      "tier": "basic",
+      "latencyMs": 5000,
+      "maxCtx": 32768,
+      "coLoadable": true,
+      "capabilities": [
+        "analysis",
+        "summary",
+        "routing"
+      ]
+    },
+    "qwen2.5:7b": {
+      "vramGb": 5.5,
+      "tier": "medium",
+      "latencyMs": 15000,
+      "maxCtx": 8192,
+      "coLoadable": true,
+      "capabilities": [
+        "analysis",
+        "summary",
+        "fundamental",
+        "debate"
+      ]
+    },
+    "qwen2.5:14b": {
+      "vramGb": 9.5,
+      "tier": "high",
+      "latencyMs": 30000,
+      "maxCtx": 8192,
+      "coLoadable": false,
+      "capabilities": [
+        "analysis",
+        "fundamental",
+        "debate",
+        "risk",
+        "deep_reasoning"
+      ]
+    },
+    "qwen3:14b": {
+      "vramGb": 9.5,
+      "tier": "high",
+      "latencyMs": 30000,
+      "maxCtx": 8192,
+      "coLoadable": false,
+      "capabilities": [
+        "analysis",
+        "fundamental",
+        "debate",
+        "risk",
+        "deep_reasoning"
+      ]
+    },
+    "deepseek-r1:14b": {
+      "vramGb": 9,
+      "tier": "reasoning",
+      "latencyMs": 60000,
+      "maxCtx": 8192,
+      "coLoadable": false,
+      "capabilities": [
+        "deep_reasoning",
+        "risk",
+        "math"
+      ]
+    },
+    "gemma3:12b": {
+      "vramGb": 8,
+      "tier": "medium",
+      "latencyMs": 25000,
+      "maxCtx": 8192,
+      "coLoadable": false,
+      "capabilities": [
+        "analysis",
+        "fundamental",
+        "debate"
+      ]
+    },
+    "qwen2.5-coder:14b": {
+      "vramGb": 9,
+      "tier": "code",
+      "latencyMs": 30000,
+      "maxCtx": 8192,
+      "coLoadable": false,
+      "capabilities": [
+        "code",
+        "analysis"
+      ]
+    },
+    "qwen2.5-coder:7b": {
+      "vramGb": 4.7,
+      "tier": "code",
+      "latencyMs": 20000,
+      "maxCtx": 8192,
+      "coLoadable": true,
+      "capabilities": [
+        "code",
+        "analysis"
+      ]
+    },
+    "deepseek-coder:6.7b": {
+      "vramGb": 3.8,
+      "tier": "code",
+      "latencyMs": 20000,
+      "maxCtx": 8192,
+      "coLoadable": true,
+      "capabilities": [
+        "code",
+        "analysis"
+      ]
+    },
+    "deepseek-coder-v2:16b": {
+      "vramGb": 8.9,
+      "tier": "code",
+      "latencyMs": 45000,
+      "maxCtx": 8192,
+      "coLoadable": false,
+      "capabilities": [
+        "code",
+        "analysis",
+        "deep_reasoning"
+      ]
+    },
+    "deepseek-r1:8b": {
+      "vramGb": 5.2,
+      "tier": "reasoning",
+      "latencyMs": 30000,
+      "maxCtx": 8192,
+      "coLoadable": true,
+      "capabilities": [
+        "deep_reasoning",
+        "risk",
+        "math"
+      ]
+    },
+    "qwen3:4b": {
+      "vramGb": 2.5,
+      "tier": "basic",
+      "latencyMs": 10000,
+      "maxCtx": 32768,
+      "coLoadable": true,
+      "capabilities": [
+        "analysis",
+        "summary",
+        "routing"
+      ]
+    },
+    "llama3.2:3b": {
+      "vramGb": 2,
+      "tier": "basic",
+      "latencyMs": 10000,
+      "maxCtx": 8192,
+      "coLoadable": true,
+      "capabilities": [
+        "analysis",
+        "summary",
+        "routing"
+      ]
+    },
+    "mixtral:8x7b": {
+      "vramGb": 26,
+      "tier": "high",
+      "latencyMs": 90000,
+      "maxCtx": 8192,
+      "coLoadable": false,
+      "capabilities": [
+        "deep_reasoning",
+        "debate"
+      ],
+      "doesNotFit": "16GB",
+      "note": "Too large for 16 GB GPU; partial CPU offload only"
+    },
+    "llama3.1:70b": {
+      "vramGb": 42,
+      "tier": "high",
+      "latencyMs": 180000,
+      "maxCtx": 8192,
+      "coLoadable": false,
+      "capabilities": [
+        "deep_reasoning"
+      ],
+      "doesNotFit": "16GB",
+      "note": "Way too large for 16 GB GPU"
+    },
+    "nomic-embed-text": {
+      "vramGb": 0.5,
+      "tier": "embed",
+      "latencyMs": 500,
+      "maxCtx": 8192,
+      "coLoadable": true,
+      "capabilities": [
+        "embedding"
+      ]
+    },
+    "gpt-oss:20b": {
+      "vramGb": 13,
+      "tier": "high",
+      "latencyMs": 35000,
+      "maxCtx": 8192,
+      "coLoadable": false,
+      "capabilities": [
+        "analysis",
+        "deep_reasoning",
+        "code"
+      ]
+    },
+    "fable5-coder": {
+      "vramGb": 9.8,
+      "tier": "code",
+      "latencyMs": 30000,
+      "maxCtx": 16384,
+      "coLoadable": false,
+      "capabilities": [
+        "code",
+        "analysis"
+      ]
+    },
+    "openrouter/cohere/north-mini-code:free": {
+      "providerKind": "cloud",
+      "provider": "openrouter",
+      "modelApiName": "cohere/north-mini-code:free",
+      "free": true,
+      "authEnv": [
+        "OPENROUTER_API_KEY"
+      ],
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "vramGb": 0,
+      "tier": "code",
+      "latencyMs": 45000,
+      "maxCtx": 256000,
+      "coLoadable": true,
+      "capabilities": [
+        "code",
+        "analysis",
+        "summary"
+      ],
+      "note": "OpenRouter public catalog: prompt=0 completion=0 as of 2026-06-21; requires OPENROUTER_API_KEY for live inference."
+    },
+    "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free": {
+      "providerKind": "cloud",
+      "provider": "openrouter",
+      "modelApiName": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "free": true,
+      "authEnv": [
+        "OPENROUTER_API_KEY"
+      ],
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "vramGb": 0,
+      "tier": "reasoning",
+      "latencyMs": 60000,
+      "maxCtx": 1000000,
+      "coLoadable": true,
+      "capabilities": [
+        "analysis",
+        "deep_reasoning",
+        "risk",
+        "debate"
+      ],
+      "note": "OpenRouter public catalog: prompt=0 completion=0 as of 2026-06-21; requires OPENROUTER_API_KEY for live inference."
+    },
+    "openrouter/qwen/qwen3-coder:free": {
+      "providerKind": "cloud",
+      "provider": "openrouter",
+      "modelApiName": "qwen/qwen3-coder:free",
+      "free": true,
+      "authEnv": [
+        "OPENROUTER_API_KEY"
+      ],
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "vramGb": 0,
+      "tier": "code",
+      "latencyMs": 60000,
+      "maxCtx": 1048576,
+      "coLoadable": true,
+      "capabilities": [
+        "code",
+        "analysis",
+        "deep_reasoning"
+      ],
+      "note": "OpenRouter public catalog: prompt=0 completion=0 as of 2026-06-21; requires OPENROUTER_API_KEY for live inference."
+    },
+    "openrouter/openai/gpt-oss-20b:free": {
+      "providerKind": "cloud",
+      "provider": "openrouter",
+      "modelApiName": "openai/gpt-oss-20b:free",
+      "free": true,
+      "authEnv": [
+        "OPENROUTER_API_KEY"
+      ],
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "vramGb": 0,
+      "tier": "reasoning",
+      "latencyMs": 45000,
+      "maxCtx": 131072,
+      "coLoadable": true,
+      "capabilities": [
+        "analysis",
+        "deep_reasoning",
+        "code"
+      ],
+      "note": "OpenRouter public catalog: prompt=0 completion=0 as of 2026-06-21; requires OPENROUTER_API_KEY for live inference."
+    },
+    "openrouter/meta-llama/llama-3.3-70b-instruct:free": {
+      "providerKind": "cloud",
+      "provider": "openrouter",
+      "modelApiName": "meta-llama/llama-3.3-70b-instruct:free",
+      "free": true,
+      "authEnv": [
+        "OPENROUTER_API_KEY"
+      ],
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "vramGb": 0,
+      "tier": "medium",
+      "latencyMs": 45000,
+      "maxCtx": 131072,
+      "coLoadable": true,
+      "capabilities": [
+        "analysis",
+        "summary",
+        "debate"
+      ],
+      "note": "OpenRouter public catalog: prompt=0 completion=0 as of 2026-06-21; requires OPENROUTER_API_KEY for live inference."
+    },
+    "qwen3-coder:30b": {
+      "vramGb": 18,
+      "tier": "code",
+      "latencyMs": 60000,
+      "maxCtx": 8192,
+      "coLoadable": false,
+      "capabilities": [
+        "code",
+        "deep_reasoning"
+      ],
+      "doesNotFit": "16GB",
+      "note": "MoE 30B,16GB 需部分 CPU offload,留難題重火力"
+    }
+  },
+  "consumers": {
+    "example-agent": {
+      "priority": 5,
+      "tasks": {
+        "market_analyst": {
+          "preferredModel": "qwen2.5:3b",
+          "fallbackChain": [
+            "qwen2.5:3b"
+          ],
+          "requiredCapabilities": [
+            "analysis"
+          ]
+        },
+        "news_analyst": {
+          "preferredModel": "qwen2.5:3b",
+          "fallbackChain": [
+            "qwen2.5:3b"
+          ],
+          "requiredCapabilities": [
+            "analysis",
+            "summary"
+          ]
+        },
+        "fundamentals_analyst": {
+          "preferredModel": "qwen2.5:7b",
+          "fallbackChain": [
+            "qwen2.5:7b",
+            "qwen2.5:3b"
+          ],
+          "requiredCapabilities": [
+            "fundamental"
+          ]
+        },
+        "sentiment_analyst": {
+          "preferredModel": "qwen2.5:3b",
+          "fallbackChain": [
+            "qwen2.5:3b"
+          ],
+          "requiredCapabilities": [
+            "analysis"
+          ]
+        },
+        "debate": {
+          "preferredModel": "qwen2.5:14b",
+          "fallbackChain": [
+            "qwen2.5:7b",
+            "qwen2.5:3b"
+          ],
+          "requiredCapabilities": [
+            "debate"
+          ]
+        },
+        "risk": {
+          "preferredModel": "deepseek-r1:14b",
+          "fallbackChain": [
+            "qwen2.5:14b",
+            "qwen2.5:7b",
+            "qwen2.5:3b"
+          ],
+          "requiredCapabilities": [
+            "risk"
+          ]
+        }
+      }
+    },
+    "openclaw": {
+      "priority": 8,
+      "tasks": {
+        "default": {
+          "preferredModel": "qwen2.5:14b",
+          "fallbackChain": [
+            "gpt-oss:20b",
+            "qwen2.5:7b",
+            "qwen2.5:3b"
+          ],
+          "requiredCapabilities": [
+            "analysis"
+          ]
+        },
+        "dev_task": {
+          "preferredModel": "openrouter/qwen/qwen3-coder:free",
+          "fallbackChain": [
+            "openrouter/cohere/north-mini-code:free",
+            "openrouter/openai/gpt-oss-20b:free",
+            "qwen2.5-coder:7b",
+            "deepseek-coder:6.7b",
+            "qwen2.5:7b",
+            "qwen2.5:3b",
+            "qwen2.5-coder:14b",
+            "fable5-coder",
+            "gpt-oss:20b"
+          ],
+          "requiredCapabilities": [
+            "code"
+          ]
+        }
+      }
+    },
+    "default": {
+      "priority": 3,
+      "tasks": {
+        "default": {
+          "preferredModel": "qwen2.5:3b",
+          "fallbackChain": [
+            "qwen2.5:3b"
+          ],
+          "requiredCapabilities": [
+            "analysis"
+          ]
+        }
+      }
+    },
+    "openhands": {
+      "priority": 7,
+      "tasks": {
+        "default": {
+          "preferredModel": "openrouter/qwen/qwen3-coder:free",
+          "fallbackChain": [
+            "openrouter/cohere/north-mini-code:free",
+            "openrouter/openai/gpt-oss-20b:free",
+            "qwen2.5-coder:7b",
+            "deepseek-coder:6.7b",
+            "fable5-coder",
+            "qwen2.5:14b",
+            "deepseek-coder-v2:16b",
+            "qwen3-coder:30b",
+            "qwen2.5:3b"
+          ],
+          "requiredCapabilities": [
+            "code"
+          ]
+        },
+        "code": {
+          "preferredModel": "openrouter/qwen/qwen3-coder:free",
+          "fallbackChain": [
+            "openrouter/cohere/north-mini-code:free",
+            "openrouter/openai/gpt-oss-20b:free",
+            "qwen2.5-coder:7b",
+            "deepseek-coder:6.7b",
+            "fable5-coder",
+            "qwen2.5:14b",
+            "deepseek-coder-v2:16b",
+            "qwen3-coder:30b",
+            "qwen2.5:3b"
+          ],
+          "requiredCapabilities": [
+            "code"
+          ]
+        }
+      }
+    },
+    "dmad": {
+      "priority": 6,
+      "tasks": {
+        "default": {
+          "preferredModel": "qwen2.5:7b",
+          "fallbackChain": [
+            "qwen2.5:3b"
+          ],
+          "requiredCapabilities": [
+            "analysis"
+          ]
+        },
+        "diagnose": {
+          "preferredModel": "qwen2.5:14b",
+          "fallbackChain": [
+            "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
+            "openrouter/openai/gpt-oss-20b:free",
+            "openrouter/meta-llama/llama-3.3-70b-instruct:free",
+            "qwen2.5:7b",
+            "qwen2.5:3b"
+          ],
+          "requiredCapabilities": [
+            "analysis"
+          ]
+        },
+        "audit": {
+          "preferredModel": "deepseek-r1:8b",
+          "fallbackChain": [
+            "deepseek-r1:14b",
+            "qwen2.5:14b",
+            "openrouter/nvidia/nemotron-3-ultra-550b-a55b:free",
+            "openrouter/openai/gpt-oss-20b:free",
+            "qwen2.5:7b",
+            "qwen2.5:3b"
+          ],
+          "requiredCapabilities": [
+            "risk"
+          ]
+        }
+      }
+    }
+  }
+}

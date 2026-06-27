@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LumenChain CapabilitySurface",
+  "type": "object",
+  "required": ["surfaceId", "surfaceType", "name", "authority", "readPolicy", "writePolicy", "riskClass", "proofRequired", "approvalRequired", "evidenceTypes", "allowedActions"],
+  "properties": {
+    "surfaceId": { "type": "string" },
+    "surfaceType": {
+      "type": "string",
+      "enum": ["product_design", "github", "notion", "computer", "browser", "ios_build", "macos_build", "web_build", "web_data_visualization", "local_filesystem", "openclaw_runtime", "external_api"]
+    },
+    "name": { "type": "string" },
+    "authority": {
+      "type": "string",
+      "enum": ["read_only", "draft_write", "verified_write", "human_approved_write", "runtime_execute"]
+    },
+    "readPolicy": {
+      "type": "string",
+      "enum": ["read_allowed", "metadata_only", "forbidden"]
+    },
+    "writePolicy": {
+      "type": "string",
+      "enum": ["no_write", "draft_only", "write_after_validation", "write_after_approval"]
+    },
+    "riskClass": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "proofRequired": { "type": "boolean" },
+    "approvalRequired": { "type": "boolean" },
+    "evidenceTypes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["file_diff", "command_output", "test_result", "trace", "screenshot", "preview_url", "issue_url", "pr_url", "notion_page_url", "design_brief", "artifact_hash", "human_approval"]
+      }
+    },
+    "allowedActions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["read", "search", "draft", "edit", "build", "test", "trace", "screenshot", "handoff", "publish_after_approval", "sync_index"]
+      }
+    }
+  },
+  "additionalProperties": false
+}

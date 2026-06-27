@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LumenChain Synapse",
+  "type": "object",
+  "required": ["synapseId", "fromNodeId", "toNodeId", "signalType", "triggerCondition", "weight", "priority", "inhibitor", "cooldownSeconds", "evidenceRequired", "allowedActions"],
+  "properties": {
+    "synapseId": { "type": "string" },
+    "fromNodeId": { "type": "string" },
+    "toNodeId": { "type": "string" },
+    "signalType": {
+      "type": "string",
+      "enum": ["new_source_detected", "duplicate_intent_detected", "risk_detected", "validation_passed", "validation_failed", "approval_required", "agent_handoff_needed", "quota_degraded", "memory_update_required", "archive_candidate_ready"]
+    },
+    "triggerCondition": { "type": "string" },
+    "weight": { "type": "number", "minimum": 0, "maximum": 1 },
+    "priority": { "type": "integer", "minimum": 0 },
+    "inhibitor": { "type": "boolean" },
+    "cooldownSeconds": { "type": "integer", "minimum": 0 },
+    "evidenceRequired": { "type": "boolean" },
+    "allowedActions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["index", "classify", "merge", "handoff", "validate", "report", "copy_safe", "move_after_approval", "archive_after_approval"]
+      }
+    }
+  },
+  "additionalProperties": false
+}

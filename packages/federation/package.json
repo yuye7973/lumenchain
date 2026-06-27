@@ -1,0 +1,21 @@
+{
+  "name": "@lumenchain/federation",
+  "version": "0.1.0",
+  "description": "Agent interconnection layer: A2A messaging, agent-card generation, light-chain federation and cross-spine dispatch — connect many agents (and machines) into one federated brain. Zero dependencies.",
+  "license": "MIT",
+  "author": "Ming-Hsiu Yeh (yuye7973)",
+  "type": "module",
+  "exports": {
+    "./federation": "./src/lightchain-federation.mjs",
+    "./dispatch": "./src/spine-federation-dispatch.mjs",
+    "./agent-card": "./src/openclaw-agent-card-generator.mjs",
+    "./a2a": "./src/a2a/index.mjs"
+  },
+  "files": [
+    "src/"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {}
+}

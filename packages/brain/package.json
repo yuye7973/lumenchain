@@ -1,0 +1,17 @@
+{
+  "name": "@lumenchain/brain",
+  "version": "0.1.0",
+  "description": "Zero-dependency reasoning brain for multi-agent systems: DMAD multi-agent debate engine, the cognitive spine, and multi-brain MCP wrappers.",
+  "license": "MIT",
+  "author": "Ming-Hsiu Yeh (yuye7973)",
+  "type": "module",
+  "exports": {
+    "./dmad-engine": "./src/dmad-engine/brain.mjs",
+    "./dmad-engine/*": "./src/dmad-engine/*.mjs",
+    "./spine/*": "./src/spine/*.mjs",
+    "./mcp/*": "./src/mcp-wrappers/*.mjs"
+  },
+  "files": ["src/"],
+  "engines": { "node": ">=18" },
+  "dependencies": {}
+}

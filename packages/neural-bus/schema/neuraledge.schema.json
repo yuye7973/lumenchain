@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LumenChain NeuralEdge",
+  "type": "object",
+  "required": ["edgeId", "fromNodeId", "toNodeId", "relation", "evidence"],
+  "properties": {
+    "edgeId": { "type": "string" },
+    "fromNodeId": { "type": "string" },
+    "toNodeId": { "type": "string" },
+    "relation": {
+      "type": "string",
+      "enum": ["references", "generated", "derived_from", "supersedes", "blocks_delete", "requires_approval", "verified_by", "same_intent", "contains", "belongs_to_project", "uses_agent", "handoff_to", "projects_to_surface", "produces_artifact", "reviewed_by", "visualizes"]
+    },
+    "evidence": { "type": "string" },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+  },
+  "additionalProperties": false
+}

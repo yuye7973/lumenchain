@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LumenChain Evidence Block",
+  "type": "object",
+  "required": ["blockId", "scope", "previousBlockHash", "inputSnapshotHash", "nodeIndexHash", "edgeIndexHash", "decisionTableHash", "verified", "nextClosure"],
+  "properties": {
+    "blockId": { "type": "string" },
+    "scope": { "type": "string" },
+    "previousBlockHash": { "type": "string" },
+    "inputSnapshotHash": { "type": "string" },
+    "nodeIndexHash": { "type": "string" },
+    "edgeIndexHash": { "type": "string" },
+    "decisionTableHash": { "type": "string" },
+    "verified": { "type": "boolean" },
+    "noDelete": { "type": "boolean" },
+    "noMove": { "type": "boolean" },
+    "noRuntimeExecution": { "type": "boolean" },
+    "evidenceFiles": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "nextClosure": { "type": "string" }
+  },
+  "additionalProperties": false
+}

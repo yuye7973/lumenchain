@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LumenChain BrainDecision",
+  "type": "object",
+  "required": ["decisionId", "scope", "brainMode", "selectedAction", "selectedAgent", "policyVerdict", "approvalRequired", "confidence", "rationale", "nextClosure"],
+  "properties": {
+    "decisionId": { "type": "string" },
+    "scope": { "type": "string" },
+    "brainMode": {
+      "type": "string",
+      "enum": ["observe", "classify", "plan", "gate", "fire", "verify", "persist", "recover"]
+    },
+    "selectedAction": { "type": "string" },
+    "selectedAgent": { "type": "string" },
+    "policyVerdict": {
+      "type": "string",
+      "enum": ["allow", "deny", "approval_required", "metadata_only", "index_only"]
+    },
+    "approvalRequired": { "type": "boolean" },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "rationale": { "type": "string" },
+    "nextClosure": { "type": "string" }
+  },
+  "additionalProperties": false
+}

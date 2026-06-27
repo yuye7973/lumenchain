@@ -1,0 +1,19 @@
+{
+  "name": "@lumenchain/brain-training",
+  "version": "0.1.0",
+  "description": "Brain-training (練腦): promotion gates, drift detection/hunting, pattern auto-promotion and memory promotion — how the local brain practices, is reviewed, and is promoted (e.g. v12 → v13) without regressing. Zero dependencies.",
+  "license": "MIT",
+  "author": "Ming-Hsiu Yeh (yuye7973)",
+  "type": "module",
+  "exports": {
+    "./promotion-apply-gate": "./src/openclaw-promotion-apply-gate.mjs",
+    "./promotion-review-gate": "./src/openclaw-promotion-review-gate.mjs",
+    "./pattern-auto-promoter": "./src/openclaw-pattern-auto-promoter.mjs",
+    "./drift-check": "./src/openclaw-agent-drift-check.mjs",
+    "./drift-hunter": "./src/openclaw-silent-drift-hunter.mjs",
+    "./memory-promote": "./src/memory-promote.mjs"
+  },
+  "files": ["src/"],
+  "engines": { "node": ">=18" },
+  "dependencies": {}
+}

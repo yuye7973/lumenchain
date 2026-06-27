@@ -1,0 +1,90 @@
+{
+  "name": "evomind",
+  "version": "0.1.0",
+  "description": "EvoMind — a four-layer self-evolving cognitive framework and subscription-aware AI cost-governance MCP server. Constitutional reasoning, graph-of-thoughts, reflexion, role evolution and REM-cycle learning for coding agents (Claude Code, Codex, and any MCP client).",
+  "license": "MIT",
+  "author": "Ming-Hsiu Yeh (yuye7973)",
+  "homepage": "https://github.com/yuye7973/evomind#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuye7973/evomind.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yuye7973/evomind/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai-agent",
+    "agent",
+    "self-evolving",
+    "cognitive-architecture",
+    "graph-of-thoughts",
+    "reflexion",
+    "constitutional-ai",
+    "cost-governance",
+    "llm",
+    "claude",
+    "codex"
+  ],
+  "bin": {
+    "evomind": "./bin/nuwa.js",
+    "evomind-a2a": "./mcp/a2a-server.js",
+    "evomind-mcp": "./mcp/server.js"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./src/cli": "./src/cli.ts",
+    "./src/cost-guard": "./src/cost-guard.ts",
+    "./src/subscription-registry": "./src/subscription-registry.ts",
+    "./src/model-pricing": "./src/model-pricing.ts",
+    "./src/subscription-verifier": "./src/subscription-verifier.ts",
+    "./src/db": "./src/db.ts",
+    "./src/migrate": "./src/migrate.ts",
+    "./src/constitutional": "./src/constitutional.ts",
+    "./src/role-evolution": "./src/role-evolution.ts",
+    "./src/got-reasoning": "./src/got-reasoning.ts",
+    "./src/mar-reflexion": "./src/mar-reflexion.ts",
+    "./src/cognitive-cycle": "./src/cognitive-cycle.ts",
+    "./src/embedding": "./src/embedding.ts",
+    "./src/croner": "./src/croner.ts",
+    "./src/dmad-debate": "./src/dmad-debate.ts",
+    "./src/hermes-gate": "./src/hermes-gate.ts",
+    "./mcp/server": "./mcp/server.ts",
+    "./mcp/a2a-server": "./mcp/a2a-server.ts"
+  },
+  "scripts": {
+    "a2a": "tsx mcp/a2a-server.ts",
+    "a2a:prod": "node mcp/a2a-server.js",
+    "mcp": "tsx mcp/server.ts",
+    "mcp:prod": "node mcp/server.js",
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.8",
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "better-sqlite3": "^12.10.0",
+    "commander": "^12.0.0",
+    "hono": "^4.7.10",
+    "@sinclair/typebox": "^0.34.35",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.6.10"
+  },
+  "peerDependenciesMeta": {
+    "openclaw": {
+      "optional": true
+    }
+  }
+}

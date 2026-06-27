@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "lumenchain.migration_route.schema.json",
+  "title": "Migration Route",
+  "type": "object",
+  "required": [
+    "routeId",
+    "sourcePath",
+    "sourceKind",
+    "owner",
+    "sensitivity",
+    "runtimeStatus",
+    "targetProject",
+    "canonicalTarget",
+    "landingZone",
+    "migrationMode",
+    "confidence",
+    "evidenceRefs",
+    "blockers",
+    "nextAction"
+  ],
+  "properties": {
+    "routeId": { "type": "string" },
+    "sourcePath": { "type": "string" },
+    "sourceKind": {
+      "type": "string",
+      "enum": [
+        "active-project",
+        "project-agent",
+        "global-agent",
+        "workflow",
+        "prompt",
+        "shared-knowledge",
+        "conversation-memory",
+        "task-board",
+        "report",
+        "script",
+        "interface",
+        "runtime-state",
+        "source-exception",
+        "archive-candidate",
+        "unknown"
+      ]
+    },
+    "owner": { "type": "string" },
+    "sensitivity": { "type": "string", "enum": ["public", "internal", "controlled-sensitive"] },
+    "runtimeStatus": { "type": "string", "enum": ["not-runtime", "runtime", "unknown"] },
+    "targetProject": { "type": "string" },
+    "canonicalTarget": { "type": "string" },
+    "landingZone": { "type": "string" },
+    "migrationMode": {
+      "type": "string",
+      "enum": ["already-landed", "index-only", "copy-safe", "move-after-approval", "archive-after-fusion", "blocked-sensitive"]
+    },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "evidenceRefs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "blockers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "nextAction": { "type": "string" }
+  },
+  "additionalProperties": false
+}

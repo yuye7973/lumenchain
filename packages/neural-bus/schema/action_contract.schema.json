@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LumenChain ActionContract",
+  "type": "object",
+  "required": ["actionId", "surfaceId", "actionType", "intent", "inputs", "outputs", "preconditions", "postconditions", "proof", "rollback", "approvalRequired"],
+  "properties": {
+    "actionId": { "type": "string" },
+    "surfaceId": { "type": "string" },
+    "actionType": {
+      "type": "string",
+      "enum": ["read", "search", "draft", "edit", "build", "test", "trace", "screenshot", "handoff", "publish_after_approval", "sync_index"]
+    },
+    "intent": { "type": "string" },
+    "inputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "outputs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "preconditions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "postconditions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "proof": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "rollback": { "type": "string" },
+    "approvalRequired": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

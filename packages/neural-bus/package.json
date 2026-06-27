@@ -1,0 +1,20 @@
+{
+  "name": "@lumenchain/neural-bus",
+  "version": "0.1.0",
+  "description": "Zero-dependency neural bus: sharded light-point state, φ-accrual failure detection, fs.watch perception, MAPE-K self-healing, plus the LumenChain knowledge-graph schemas.",
+  "license": "MIT",
+  "author": "Ming-Hsiu Yeh (yuye7973)",
+  "type": "module",
+  "bin": {
+    "lumenchain-watcher": "./src/neural-event-watcher.mjs"
+  },
+  "exports": {
+    "./bus": "./src/neural-bus.mjs",
+    "./watcher": "./src/neural-event-watcher.mjs",
+    "./revive-policy": "./src/neural-revive-policy.mjs",
+    "./registry-bridge": "./src/neural-bus-registry-bridge.mjs"
+  },
+  "files": ["src/", "schema/"],
+  "engines": { "node": ">=18" },
+  "dependencies": {}
+}
